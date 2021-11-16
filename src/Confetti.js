@@ -1,6 +1,8 @@
+/* eslint-disable no-redeclare */
+/* eslint-disable no-unused-vars */
 export function start() {
-    let W = window.innerWidth;
-    let H = window.innerHeight;
+    let Width = window.innerWidth;
+    let Height = window.innerHeight;
     const canvas = document.getElementById("canvas");
     const context = canvas.getContext("2d");
     const maxConfettis = 150;
@@ -13,13 +15,14 @@ export function start() {
       "Pink",
       "SlateBlue",
       "LightBlue",
-      "Gold",
+      "Red",
       "Violet",
       "PaleGreen",
       "SteelBlue",
       "SandyBrown",
       "Chocolate",
-      "Crimson"
+      "Crimson",
+      "Black"
     ];
   
     function randomFromTo(from, to) {
@@ -27,8 +30,8 @@ export function start() {
     }
   
     function confettiParticle() {
-      this.x = Math.random() * W; // x
-      this.y = Math.random() * H - H; // y
+      this.x = Math.random() * Width; // x
+      this.y = Math.random() * Height - Height; // y
       this.r = randomFromTo(11, 33); // radius
       this.d = Math.random() * maxConfettis + 11;
       this.color = possibleColors[Math.floor(Math.random() * possibleColors.length)];
@@ -52,7 +55,7 @@ export function start() {
       // Magical recursive functional love
       requestAnimationFrame(Draw);
   
-      context.clearRect(0, 0, W, window.innerHeight);
+      context.clearRect(0, 0, Width, window.innerHeight);
   
       for (var i = 0; i < maxConfettis; i++) {
         results.push(particles[i].draw());
@@ -67,12 +70,12 @@ export function start() {
         particle.y += (Math.cos(particle.d) + 3 + particle.r / 2) / 2;
         particle.tilt = Math.sin(particle.tiltAngle - i / 3) * 15;
   
-        if (particle.y <= H) remainingFlakes++;
+        if (particle.y <= Height) remainingFlakes++;
   
         // If a confetti has fluttered out of view,
         // bring it back to above the viewport and let if re-fall.
-        if (particle.x > W + 30 || particle.x < -30 || particle.y > H) {
-          particle.x = Math.random() * W;
+        if (particle.x > Width + 30 || particle.x < -30 || particle.y > Height) {
+          particle.x = Math.random() * Width;
           particle.y = -30;
           particle.tilt = Math.floor(Math.random() * 10) - 20;
         }
@@ -84,8 +87,8 @@ export function start() {
     window.addEventListener(
       "resize",
       function() {
-        W = window.innerWidth;
-        H = window.innerHeight;
+        Width = window.innerWidth;
+        Height = window.innerHeight;
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
       },
@@ -98,8 +101,8 @@ export function start() {
     }
   
     // Initialize
-    canvas.width = W;
-    canvas.height = H;
+    canvas.width = Width;
+    canvas.height = Height;
     Draw();
   }
   
