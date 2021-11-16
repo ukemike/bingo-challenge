@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import shuffle from "shuffle-array";
-
 import "./index.css";
 
 import { start } from "./Confetti";
@@ -49,6 +48,7 @@ const bbb = [
   "Happy to announce"
 ];
 
+// convert the array to an object
 const data = shuffle(bbb).reduce(
   (data, value, index) => ({ ...data, [index]: value }),
   {}
@@ -63,8 +63,8 @@ function App() {
         range.find(row => range.every(column => checked[row * 5 + column])) ||
       undefined !==
         range.find(column => range.every(row => checked[row * 5 + column])) ||
-      range.every(index => checked[index * 5 + index]) ||
-      range.every(index => checked[index * 5 + 4 - index])
+        range.every(index => checked[index * 5 + index]) ||
+        range.every(index => checked[index * 5 + 4 - index])
     );
   };
   const toggle = id =>
@@ -80,7 +80,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Bingo</h1>
+      <h1>Bingo Game Challenge</h1>
       <div className="wrapper">
         {Object.keys(data).map(id => (
           <Tile
@@ -100,87 +100,3 @@ function App() {
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import './index.css';
-// import App from './App';
-// import reportWebVitals from './reportWebVitals';
-
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
-
-// reportWebVitals();

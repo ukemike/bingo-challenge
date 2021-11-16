@@ -31,8 +31,7 @@ export function start() {
       this.y = Math.random() * H - H; // y
       this.r = randomFromTo(11, 33); // radius
       this.d = Math.random() * maxConfettis + 11;
-      this.color =
-        possibleColors[Math.floor(Math.random() * possibleColors.length)];
+      this.color = possibleColors[Math.floor(Math.random() * possibleColors.length)];
       this.tilt = Math.floor(Math.random() * 33) - 11;
       this.tiltAngleIncremental = Math.random() * 0.07 + 0.05;
       this.tiltAngle = 0;
